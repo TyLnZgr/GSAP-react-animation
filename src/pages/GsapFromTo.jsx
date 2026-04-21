@@ -1,5 +1,26 @@
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+
 const GsapFromTo = () => {
-  // TODO: Implement the gsap.fromTo() method
+  useGSAP(() => {
+    gsap.fromTo(
+      "#orange-box",
+      {
+        x: 0,
+        rotation: 0,
+        borderRadius: "0%",
+      },
+      {
+        x: 300,
+        duration: 2,
+        repeat: -1,
+        yoyo: true,
+        rotation: 360,
+        borderRadius: "60%",
+        ease: "power1.inOut",
+      },
+    );
+  }, []);
 
   return (
     <main>
@@ -33,7 +54,7 @@ const GsapFromTo = () => {
       </p>
 
       <div className="mt-20">
-        <div id="red-box" className="w-20 h-20 bg-red-500 rounded-lg" />
+        <div id="orange-box" className="w-20 h-20 bg-orange-500 rounded-lg" />
       </div>
     </main>
   );
